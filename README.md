@@ -1,1 +1,2 @@
-# student-management
+# student-management 
+This is a CURD Application
