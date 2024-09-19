@@ -17,8 +17,9 @@ def insertData(request):
         email=request.POST.get('email')
         age=request.POST.get('age')
         gender=request.POST.get('gender')
-        print(name,email,age,gender)
-        query=Student(name=name,email=email,age=age,gender=gender)
+        branch=request.POST.get('branch')
+        print(name,email,age,gender,branch)
+        query=Student(name=name,email=email,age=age,gender=gender,branch=branch)
         query.save()
         messages.info(request,"Data Inserted Successfully")
         return redirect("/")
@@ -31,11 +32,13 @@ def updateData(request,id):
         email=request.POST['email']
         age=request.POST['age']
         gender=request.POST['gender']
+        branch=request.POST['branch']
         edit=Student.objects.get(id=id)
         edit.name=name
         edit.email=email
         edit.gender=gender
         edit.age=age
+        edit.branch=branch
         edit.save()
         messages.info(request,"Data Updated Successfully")
 
